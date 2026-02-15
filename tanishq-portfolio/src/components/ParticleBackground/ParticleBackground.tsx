@@ -33,8 +33,8 @@ export const ParticleBackground: React.FC = () => {
       opacity: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * (canvas?.width || 0);
+        this.y = Math.random() * (canvas?.height || 0);
         this.size = Math.random() * 3 + 1;
         this.speedX = Math.random() * 0.5 - 0.25;
         this.speedY = Math.random() * 0.5 - 0.25;
@@ -46,10 +46,10 @@ export const ParticleBackground: React.FC = () => {
         this.y += this.speedY;
 
         // Wrap around screen
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
+        if (canvas && this.x > canvas.width) this.x = 0;
+        if (canvas && this.x < 0) this.x = canvas.width;
+        if (canvas && this.y > canvas.height) this.y = 0;
+        if (canvas && this.y < 0) this.y = canvas.height;
       }
 
       draw() {
