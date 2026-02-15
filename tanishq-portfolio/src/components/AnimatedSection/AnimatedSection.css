@@ -1,0 +1,56 @@
+.animated-section {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Fade animation */
+.animated-section--fade {
+  opacity: 0;
+}
+
+.animated-section--fade.animated-section--visible {
+  opacity: 1;
+}
+
+/* Slide-up animation */
+.animated-section--slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animated-section--slide-up.animated-section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-left animation */
+.animated-section--slide-left {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.animated-section--slide-left.animated-section--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide-right animation */
+.animated-section--slide-right {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.animated-section--slide-right.animated-section--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animated-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
